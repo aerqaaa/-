@@ -1,36 +1,33 @@
 ﻿#include <iostream>
-#include<iostream>
-#include<clocale>
-#include<cmath>
+#include <cmath>
+#include <cstring>
+#include <iomanip>
 
 using namespace std;
-
 int main()
 {
     setlocale(LC_CTYPE, "rus");
-    float CheckX = 1, CheckY = 1;
-    while (CheckX != 0 || CheckY != 0) {
-        cout << "Введите координату X: " << endl;
-        cin >> CheckX;
-        cout << "Введите координату Y: " << endl;
-        cin >> CheckY;
-        if (CheckX <= 3 && CheckX >= 0)
+    float x = 1 , y = 1;
+    while (x != 0 || y != 0) {
+        cout << "Введите координату Х:";
+        cin >> x;
+        cout << "Введите координату Y:";
+        cin >> y;
+        if ((y >= 0) && (x <= 3) && (x >= 0) && (y <= 5))
         {
-            float PredictedY = 0;
-            PredictedY = -4.0 / 3 * CheckX + 4;
-            if ((CheckY <= PredictedY) && (CheckY >= 0))
+            if (y <= 4 - (4.0 / 3.0) * x && x >= 0 && y >= 0)
             {
-                cout << "Точка входит в треугольник" << endl;
+                cout << "Точка с заданными координатами (" << x << " ; " << y << " ) входит в треугольник" << endl;
             }
             else
             {
-                cout << "Точка не входит в треугольник" << endl;
+                cout << "Точка с заданными координатами (" << x << " ; " << y << " ) не входит в треугольник" << endl;
             }
         }
         else
         {
-            cout << "Точка не входит в треугольник" << endl;
+            cout << "Точка с заданными координатами (" << x << " ; " << y << " ) не входит в треугольник" << endl;
         }
     }
 }
-// проверка изменений
+     
