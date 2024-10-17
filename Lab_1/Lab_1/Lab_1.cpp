@@ -1,33 +1,53 @@
 ﻿#include <iostream>
-#include <cmath>
 #include <cstring>
-#include <iomanip>
 
 using namespace std;
-int main()
-{
+
+int main(int argc, char* argv[]) {
     setlocale(LC_CTYPE, "rus");
-    float x = 1 , y = 1;
+    bool isHuman = false;
+    float x = 1.0, y = 1.0, const1 = -4.0, const2 = 3.0, const3 = 4.0;
+    if (argc <= 1  || strcmp(argv[1], "false") != 0)
+    {
+        isHuman = true;
+    }
     while (x != 0 || y != 0) {
-        cout << "Введите координату Х:";
+        if (isHuman)
+            cout << "Введи координату х: ";
         cin >> x;
-        cout << "Введите координату Y:";
+        if (isHuman)
+            cout << "Введи координату y: ";
         cin >> y;
-        if ((y >= 0) && (x <= 3) && (x >= 0) && (y <= 5))
+        if (x <= 3 && x >= 0)
         {
-            if (y <= 4 - (4.0 / 3.0) * x && x >= 0 && y >= 0)
+            float y1 = 1;
+            y1 = ((const1 / const2) * x + const3);
+            if ((y <= y1) && (y >= 0))
             {
-                cout << "Точка с заданными координатами (" << x << " ; " << y << " ) входит в треугольник" << endl;
+                if (isHuman) {
+                    if (x != 0 || y != 0)
+                        cout << "Координаты: " << x << ", " << y << " входят в треугольник!" << endl;
+                }
+                else {
+                    if (x != 0 || y != 0)
+                        cout << "YES" << endl;
+                }
             }
             else
             {
-                cout << "Точка с заданными координатами (" << x << " ; " << y << " ) не входит в треугольник" << endl;
+                if (isHuman)
+                    cout << "Координаты: " << x << ", " << y << " не входят в треугольник!" << endl;
+                else
+                    cout << "NO" << endl;
             }
         }
         else
         {
-            cout << "Точка с заданными координатами (" << x << " ; " << y << " ) не входит в треугольник" << endl;
+            if (isHuman)
+                cout << "Координаты: " << x << ", " << y << " не входят в треугольник!" << endl;
+            else
+                cout << "NO" << endl;
         }
     }
+    return 0;
 }
-     
